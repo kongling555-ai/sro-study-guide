@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRO 维州州税学习资料</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f172a;
+    --bg-card: #1e293b;
+    --bg-soft: #334155;
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
+    --accent: #34d399;
+    --accent-soft: rgba(52, 211, 153, 0.12);
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --yellow: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 60%, #134e4a 100%);
+    padding: 80px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(96,165,250,0.15) 0%, transparent 50%);
+    animation: float 12s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -30px); }
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #fff, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .hero p { color: var(--text-muted); font-size: 1.1rem; position: relative; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+  nav {
+    background: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 20px;
+    margin: -30px auto 40px;
+    position: sticky;
+    top: 16px;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    justify-content: center;
+    max-width: 1000px;
+  }
+  nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--primary); }
+  section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 28px;
+  }
+  h2 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2::before {
+    content: '';
+    width: 6px;
+    height: 28px;
+    background: linear-gradient(var(--primary), var(--accent));
+    border-radius: 3px;
+  }
+  h3 { color: var(--primary); margin: 1.6em 0 0.6em; font-size: 1.2rem; }
+  h4 { color: var(--accent); margin: 1.2em 0 0.5em; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .card {
+    background: var(--bg-soft);
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+  .card:hover { border-color: var(--primary); transform: translateY(-2px); }
+  .card h4 { margin-top: 0; color: var(--primary); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.94rem;
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th { background: rgba(96, 165, 250, 0.08); color: var(--primary); font-weight: 600; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .highlight {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 18px 0;
+  }
+  .oral {
+    background: rgba(251, 191, 36, 0.08);
+    border-left: 4px solid var(--yellow);
+    padding: 16px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 14px 0;
+    font-style: italic;
+    color: #fde68a;
+  }
+  .plan-day {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .plan-day:last-child { border: none; }
+  .plan-day strong { color: var(--primary); }
+  details {
+    background: var(--bg-soft);
+    border-radius: 12px;
+    margin: 12px 0;
+    overflow: hidden;
+  }
+  summary {
+    padding: 14px 18px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  details p, details ul { padding: 0 18px 16px; }
+  ul { padding-left: 20px; margin: 8px 0; }
+  li { margin: 6px 0; }
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 20px;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2rem; }
+    section { padding: 24px; }
+    nav { top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>SRO 维州州税学习资料</h1>
+  <p>Technical Officer & Tax Advisory Review Officer 面试准备专用</p>
+  <p style="margin-top:8px; font-size:0.95rem;">两周计划 · 三大主税 · Grouping · 计算例子 · 面试口语</p>
+</div>
+
+<div class="container">
+
+<nav>
+  <a href="#plan">两周计划</a>
+  <a href="#overview">核心总览</a>
+  <a href="#duties">Duties</a>
+  <a href="#payroll">Payroll Tax</a>
+  <a href="#landtax">Land Tax</a>
+  <a href="#grouping">Grouping</a>
+  <a href="#other">其他税种</a>
+  <a href="#federal">个税 vs 公司税</a>
+  <a href="#interview">面试准备</a>
+  <a href="#oral">口语参考</a>
+</nav>
+
+<section id="plan">
+  <h2>两周突击学习计划</h2>
+  <p style="color:var(--text-muted); margin-bottom:16px;">每天建议投入 2–3 小时。优先掌握 Landholder Duty、Payroll Grouping 和 PPR 豁免。</p>
+  <h3>第1周：建立三大税种框架</h3>
+  <div class="plan-day"><strong>Day 1</strong> — 总览 + Land Tax 基础</div>
+  <div class="plan-day"><strong>Day 2</strong> — Land Tax 深入（PPR、VRLT、Absentee）</div>
+  <div class="plan-day"><strong>Day 3</strong> — Payroll Tax 基础</div>
+  <div class="plan-day"><strong>Day 4</strong> — Payroll Tax Grouping（重点）</div>
+  <div class="plan-day"><strong>Day 5</strong> — Duties 总览</div>
+  <div class="plan-day"><strong>Day 6</strong> — Landholder Duty（重中之重）</div>
+  <div class="plan-day"><strong>Day 7</strong> — 复习 + 对照表</div>
+  <h3>第2周：程序法 + 应用</h3>
+  <div class="plan-day"><strong>Day 8–10</strong> — Taxation Administration Act、异议流程、Private Ruling</div>
+  <div class="plan-day"><strong>Day 11–14</strong> — 情景练习、口语表达、综合模拟</div>
+  <div class="highlight">资源优先级：SRO 官网指南 → Revenue Rulings → 立法原文</div>
+</section>
+
+<section id="overview">
+  <h2>核心知识总览</h2>
+  <div class="grid">
+    <div class="card">
+      <h4>Duties Act 2000</h4>
+      <p>土地转让税 + <strong>Landholder Duty</strong></p>
+    </div>
+    <div class="card">
+      <h4>Payroll Tax Act 2007</h4>
+      <p>工资税 + <strong>Grouping</strong></p>
+    </div>
+    <div class="card">
+      <h4>Land Tax Act 2005</h4>
+      <p>年度土地税 + <strong>PPR 豁免</strong></p>
+    </div>
+    <div class="card">
+      <h4>Taxation Administration Act</h4>
+      <p>统一程序法：评估、异议、追溯</p>
+    </div>
+  </div>
+</section>
+
+<section id="duties">
+  <h2>Duties Act 2000</h2>
+  <h3>Landholder Duty（重点）</h3>
+  <p>防止通过买卖公司/信托股份间接取得土地而逃避印花税。</p>
+  <ul>
+    <li><strong>Landholder</strong>：持有维州土地 ≥ $1 million 的公司或单位信托</li>
+    <li><strong>Relevant Acquisition</strong>：取得足够比例权益即触发</li>
+    <li>$1–2 million 有相位公式；公开实体有 10% 优惠税率</li>
+  </ul>
+  <div class="oral">“Landholder Duty applies when someone acquires an interest in a company or unit trust that holds Victorian land worth $1 million or more.”</div>
+
+  <h3>土地转让税计算例子</h3>
+  <table>
+    <tr><th>价值范围</th><th>税率</th></tr>
+    <tr><td>$130,001 – $960,000</td><td>$2,870 + 6%</td></tr>
+    <tr><td>$960,001 – $2,000,000</td><td>5.5% 整笔</td></tr>
+    <tr><td>超过 $2,000,000</td><td>$110,000 + 6.5%</td></tr>
+  </table>
+  <div class="card" style="margin-top:12px;">
+    <strong>$800,000</strong> → $43,070 &nbsp;&nbsp;|&nbsp;&nbsp; <strong>$1,000,000</strong> → $55,000
+  </div>
+
+  <h3>首次置业优惠</h3>
+  <ul>
+    <li>≤ $600,000：全额豁免</li>
+    <li>$600,001 – $750,000：滑动优惠</li>
+    <li>需作为 PPR 实际居住至少 12 个月</li>
+  </ul>
+</section>
+
+<section id="payroll">
+  <h2>Payroll Tax Act 2007</h2>
+  <p>当前起征点 <strong>$1,000,000</strong>，税率 <strong>4.85%</strong>（区域雇主 1.2125%）。</p>
+  <div class="grid">
+    <div class="card">
+      <h4>单一雇主</h4>
+      <p>$1,500,000 → 缴 <strong>$24,250</strong></p>
+    </div>
+    <div class="card">
+      <h4>Grouping 影响</h4>
+      <p>两家合计 $1.3m → 缴约 <strong>$14,550</strong></p>
+    </div>
+  </div>
+</section>
+
+<section id="landtax">
+  <h2>Land Tax Act 2005</h2>
+  <h3>PPR 豁免（重点）</h3>
+  <ul>
+    <li>核心看是否真正作为主住宅使用</li>
+    <li>搬出并出租后通常失去豁免</li>
+    <li>仅有“打算回来”的意愿通常不够</li>
+  </ul>
+  <div class="oral">“The PPR exemption depends on actual use as the person’s home, not just ownership.”</div>
+</section>
+
+<section id="grouping">
+  <h2>Payroll Tax Grouping 详解</h2>
+  <h3>Common Control（s72）</h3>
+  <p>同一个人或同一组人对多个业务有 controlling interest（通常 >50% 投票权）。<strong>可申请排除</strong>。</p>
+  <h3>Related Bodies Corporate（s70）</h3>
+  <p>按 Corporations Act 为控股/子公司关系。<strong>不能申请排除</strong>。</p>
+  <table>
+    <tr><th>对比</th><th>s70</th><th>s72</th></tr>
+    <tr><td>能否排除</td><td>不能</td><td>可以</td></tr>
+    <tr><td>严格程度</td><td>更高</td><td>相对灵活</td></tr>
+  </table>
+
+  <h3>各州 Payroll Tax 对比</h3>
+  <table>
+    <tr><th>州</th><th>起征点</th><th>税率</th></tr>
+    <tr><td><strong>Victoria</strong></td><td>$1,000,000</td><td>4.85%</td></tr>
+    <tr><td>NSW</td><td>$1,200,000</td><td>5.45%</td></tr>
+    <tr><td>Queensland</td><td>$1,300,000</td><td>4.75% / 4.95%</td></tr>
+    <tr><td>WA</td><td>$1,000,000</td><td>5.5%</td></tr>
+    <tr><td>SA</td><td>$1,500,000</td><td>最高 4.95%</td></tr>
+  </table>
+</section>
+
+<section id="other">
+  <h2>其他主要税种</h2>
+  <div class="grid">
+    <div class="card"><h4>CIPT</h4><p>商业工业财产税改革</p></div>
+    <div class="card"><h4>VRLT</h4><p>空置住宅土地税</p></div>
+    <div class="card"><h4>Congestion Levy</h4><p>内城停车位拥堵税</p></div>
+    <div class="card"><h4>Short Stay Levy</h4><p>短期住宿征费</p></div>
+  </div>
+</section>
+
+<section id="federal">
+  <h2>个税 vs 公司税（联邦 · ATO）</h2>
+  <div class="highlight">这是联邦税，由 ATO 管理，与 SRO 州税体系完全独立。</div>
+  <table>
+    <tr><th>对比</th><th>个人所得税</th><th>公司税</th></tr>
+    <tr><td>税率</td><td>累进（0%–45% + Medicare）</td><td>25% 或 30% 固定</td></tr>
+    <tr><td>起征点</td><td>有（约 $18,200）</td><td>无</td></tr>
+    <tr><td>分红</td><td>—</td><td>有 Franking Credit</td></tr>
+  </table>
+  <p style="margin-top:12px;"><strong>例子：</strong>公司赚 $100,000 → 缴 $25,000（25%），分红后股东可抵扣 franking credit。</p>
+</section>
+
+<section id="interview">
+  <h2>面试准备</h2>
+  <h3>自我介绍</h3>
+  <div class="oral">Hi, thanks for having me. I’ve been focusing on Victorian state taxes — mainly Duties, Payroll Tax and Land Tax. I’ve looked closely at Landholder duty, grouping rules, and the objection process. What draws me to SRO is working with the legislation in practice.</div>
+
+  <h3>高频问题</h3>
+  <details>
+    <summary>点击展开</summary>
+    <ul>
+      <li>解释 Landholder Duty / Grouping / PPR</li>
+      <li>情景题：买股份是否触发、控制权是否 grouping、出租后是否还能 PPR</li>
+      <li>如何处理异议？有效异议需要什么？</li>
+    </ul>
+  </details>
+</section>
+
+<section id="oral">
+  <h2>口语参考回答</h2>
+  <h3>Landholder Duty</h3>
+  <div class="oral">Landholder Duty stops people avoiding transfer duty by buying shares instead of the land. It applies when you acquire a sufficient interest in a company or unit trust holding Victorian land worth $1 million or more.</div>
+  <h3>Common Control</h3>
+  <div class="oral">If the same person has a controlling interest in two businesses — usually more than 50% voting power — they are grouped. Exclusion is possible only if genuinely independent.</div>
+  <h3>PPR</h3>
+  <div class="oral">It depends on actual use as the home. Moving out and renting it usually ends the exemption, unless temporary absence rules apply.</div>
+</section>
+
+</div>
+
+<footer>
+  SRO 维州州税学习资料 · 建议结合 SRO 官网最新指南使用 · 2026年11月
+</footer>
+
+</body>
+</html>
